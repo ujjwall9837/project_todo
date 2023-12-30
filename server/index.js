@@ -1,6 +1,9 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 import Connection from "./database/db.js";
 import Routes from "./routes/route.js";
@@ -14,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/", Routes);
 
-const PORT = 8000;
+const PORT =  process.env.PORT || 4000;
 
 Connection();
 
